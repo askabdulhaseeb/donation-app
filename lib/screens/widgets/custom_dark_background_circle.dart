@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CustomCircle extends StatelessWidget {
-  const CustomCircle({Key? key}) : super(key: key);
-  final String imageURL =
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqOZwTzOSl7RWkKstbqrKZ0BQcqBAxxAZ5yQ&usqp\=CAU';
+class CustomDarkBackgroundCircle extends StatelessWidget {
+  const CustomDarkBackgroundCircle({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;

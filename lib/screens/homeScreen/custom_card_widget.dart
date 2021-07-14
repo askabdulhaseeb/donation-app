@@ -1,6 +1,5 @@
-import 'package:donation_app/screens/widgets/custom_circle.dart';
+import 'package:donation_app/screens/widgets/custom_dark_background_circle.dart';
 import 'package:flutter/material.dart';
-
 
 class CustomCardWidget extends StatelessWidget {
   const CustomCardWidget({
@@ -30,7 +29,7 @@ class CustomCardWidget extends StatelessWidget {
           Positioned(
             top: -120,
             left: -50,
-            child: CustomCircle(),
+            child: CustomDarkBackgroundCircle(),
           ),
           Padding(
             padding: const EdgeInsets.all(16),

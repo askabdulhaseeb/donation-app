@@ -1,9 +1,10 @@
 import 'package:donation_app/screens/widgets/custom_appbar_background.dart';
-import 'package:donation_app/screens/widgets/custom_circle.dart';
+import 'package:donation_app/screens/widgets/custom_dark_background_circle.dart';
 import 'package:donation_app/screens/widgets/custom_search_textformfield.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 import 'custom_card_widget.dart';
+import 'home_screen_header_text.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key? key}) : super(key: key);
@@ -14,9 +15,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final TextEditingController _search = TextEditingController();
-  String name = "Ibrahim";
-  String image =
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqOZwTzOSl7RWkKstbqrKZ0BQcqBAxxAZ5yQ&usqp\=CAU';
 
   @override
   Widget build(BuildContext context) {
@@ -32,23 +30,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 Positioned(
                   right: -34,
                   top: -54,
-                  child: CustomCircle(),
+                  child: CustomDarkBackgroundCircle(),
                 ),
-                Positioned(
-                  left: 20,
-                  top: 40,
-                  child: Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(
-                      "Good Morning\n" + name,
-                      style: TextStyle(
-                        fontSize: 26,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
+                HomeScreenHeaderText(),
                 Positioned(
                   bottom: 0,
                   left: 0,
@@ -57,13 +41,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
                       CustomCardWidget(
-                        icon: Icons.stacked_line_chart,
+                        icon: LineIcons.donate,
                         title: 'Donations',
                         numberOfCases: 120,
                         backgroundColor: Colors.green,
                       ),
                       CustomCardWidget(
-                        icon: Icons.star,
+                        icon: Icons.star_border_outlined,
                         title: 'Wish List',
                         numberOfCases: 13,
                         backgroundColor: Colors.amber,
