@@ -12,7 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  font_awesome_flutter: ^9.1.0
+  line_icons: ^2.0.1
   cupertino_icons: ^1.0.2
 
 dev_dependencies:

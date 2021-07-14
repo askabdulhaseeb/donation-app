@@ -2,6 +2,7 @@ import 'package:donation_app/screens/widgets/custom_appbar_background.dart';
 import 'package:donation_app/screens/widgets/custom_circle.dart';
 import 'package:donation_app/screens/widgets/custom_search_textformfield.dart';
 import 'package:flutter/material.dart';
+import 'package:line_icons/line_icons.dart';
 import 'custom_card_widget.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -78,6 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -86,10 +88,27 @@ class _MyHomePageState extends State<MyHomePage> {
                     Container(
                       height: size.width * 0.12,
                       width: size.width * 0.12,
-                      color: Colors.white,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      alignment: Alignment.center,
+                      child: Icon(
+                        LineIcons.filter,
+                        color: Colors.purple,
+                      ),
                     )
                   ],
                 ),
+                const SizedBox(height: 10),
+                const Text(
+                  'DONATE NOW',
+                  style: TextStyle(
+                    color: Colors.blueGrey,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                const SizedBox(height: 10),
               ],
             ),
           ),
