@@ -1,8 +1,12 @@
+import 'package:donation_app/models/donation_cases.dart';
+import 'package:donation_app/providers/donation_cases_provider.dart';
+import 'package:donation_app/screens/homeScreen/donation_tile_widget.dart';
 import 'package:donation_app/screens/widgets/custom_appbar_background.dart';
 import 'package:donation_app/screens/widgets/custom_dark_background_circle.dart';
 import 'package:donation_app/screens/widgets/custom_search_textformfield.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
+import 'package:provider/provider.dart';
 import 'custom_card_widget.dart';
 import 'home_screen_header_text.dart';
 
@@ -17,8 +21,16 @@ class _MyHomePageState extends State<MyHomePage> {
   final TextEditingController _search = TextEditingController();
 
   @override
+  void didChangeDependencies() {
+    Provider.of<DonationCasesProvider>(context).addDomeData();
+    super.didChangeDependencies();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
+    List<DonationCases> _cases =
+        Provider.of<DonationCasesProvider>(context).getCasesList();
     return Scaffold(
       body: Column(
         children: [
@@ -85,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     )
                   ],
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 6),
                 const Text(
                   'DONATE NOW',
                   style: TextStyle(
@@ -93,8 +105,20 @@ class _MyHomePageState extends State<MyHomePage> {
                     fontWeight: FontWeight.w700,
                   ),
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 4),
+                // List
               ],
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: _cases.length,
+              itemBuilder: (context, index) {
+                return DonationTileWidget(
+                  donationCases: _cases[index],
+                  size: size,
+                );
+              },
             ),
           ),
         ],
