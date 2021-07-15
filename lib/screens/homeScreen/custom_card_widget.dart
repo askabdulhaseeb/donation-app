@@ -17,9 +17,15 @@ class CustomCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
+    var textStyle = TextStyle(
+      fontWeight: FontWeight.w500,
+      fontSize: size.width * 0.04,
+      color: Colors.white,
+      letterSpacing: 1,
+    );
     return Container(
-      height: size.width / 2.6,
-      width: size.width / 2.4,
+      height: (size.width > 500) ? size.width / 3.6 : size.width / 2.6,
+      width: (size.width > 500) ? size.width / 2.6 : size.width / 2.4,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: backgroundColor,
@@ -27,27 +33,23 @@ class CustomCardWidget extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           Positioned(
-            top: -120,
-            left: -50,
+            top: -size.height * 0.2,
+            left: -size.height * 0.1,
             child: CustomDarkBackgroundCircle(),
           ),
           Padding(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Icon(icon, color: Colors.white),
+                    Icon(icon, color: Colors.white, size: size.width * 0.06),
                     Text(
                       title,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        color: Colors.white,
-                        letterSpacing: 1,
-                      ),
+                      style: textStyle,
                     ),
                   ],
                 ),
@@ -55,16 +57,14 @@ class CustomCardWidget extends StatelessWidget {
                 Text(
                   '$numberOfCases',
                   style: TextStyle(
-                    fontSize: 34,
+                    fontSize: size.width * 0.1,
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 Text(
                   ' Cases',
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
+                  style: textStyle,
                 ),
               ],
             ),

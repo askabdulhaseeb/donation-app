@@ -26,11 +26,11 @@ class _CustomSearchTextFormFieldState extends State<CustomSearchTextFormField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width * 0.74,
+      // width: MediaQuery.of(context).size.width * 0.74,
       alignment: Alignment.center,
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(10),
       ),
       child: TextFormField(
         controller: widget.search,

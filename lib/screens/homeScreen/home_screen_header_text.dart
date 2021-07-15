@@ -12,35 +12,36 @@ class HomeScreenHeaderText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
+    var textStyle = TextStyle(
+      color: Colors.white,
+      fontSize: size.width * 0.07,
+      fontWeight: FontWeight.bold,
+    );
     return Positioned(
       left: 20,
-      right: 20,
-      top: 40,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      right: 36,
+      top: size.height * 0.06,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
               Text(
                 _getWelcomeText(),
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 26,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: textStyle,
               ),
-              CustomCircularProfileImage(imageURL: image),
+              Text(
+                name,
+                style: textStyle,
+              ),
             ],
           ),
-          Text(
-            name,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 26,
-              fontWeight: FontWeight.bold,
-            ),
-          )
+          CustomCircularProfileImage(
+            imageURL: image,
+            radius: size.width * 0.06,
+          ),
         ],
       ),
     );
@@ -50,12 +51,14 @@ class HomeScreenHeaderText extends StatelessWidget {
     final int _hour = DateTime.now().hour;
     if (_hour <= 10) {
       return 'Good Morning';
-    } else if (_hour <= 14) {
+    } else if (_hour <= 12) {
       return 'Good Noon';
-    } else if (_hour <= 18) {
+    } else if (_hour <= 17) {
       return 'Good Afternoon';
-    } else {
+    } else if (_hour <= 21) {
       return 'Good Evening';
+    } else {
+      return 'Good Night';
     }
   }
 }

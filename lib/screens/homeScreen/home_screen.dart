@@ -23,13 +23,13 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         children: [
           SizedBox(
-            height: size.height * .42,
+            height: size.height * .38,
             child: Stack(
               children: [
                 CustomAppBarBackbround(backgroundColor: Colors.purpleAccent),
                 Positioned(
-                  right: -34,
-                  top: -54,
+                  right: -size.height * 0.04,
+                  top: -size.height * 0.1,
                   child: CustomDarkBackgroundCircle(),
                 ),
                 HomeScreenHeaderText(),
@@ -68,10 +68,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    CustomSearchTextFormField(search: _search),
+                    Expanded(child: CustomSearchTextFormField(search: _search)),
+                    const SizedBox(width: 10),
                     Container(
-                      height: size.width * 0.12,
-                      width: size.width * 0.12,
+                      height: 48,
+                      width: 50,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10),
