@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 class CustomCardWidget extends StatelessWidget {
   const CustomCardWidget({
-    Key? key,
     required this.icon,
     required this.title,
     required this.numberOfCases,
     required this.backgroundColor,
+    Key? key,
   }) : super(key: key);
   final IconData icon;
   final String title;
@@ -17,7 +17,7 @@ class CustomCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    var textStyle = TextStyle(
+    final TextStyle textStyle = TextStyle(
       fontWeight: FontWeight.w500,
       fontSize: size.width * 0.04,
       color: Colors.white,
@@ -35,7 +35,7 @@ class CustomCardWidget extends StatelessWidget {
           Positioned(
             top: -size.height * 0.2,
             left: -size.height * 0.1,
-            child: CustomDarkBackgroundCircle(),
+            child: const CustomDarkBackgroundCircle(),
           ),
           Padding(
             padding: const EdgeInsets.all(20),
@@ -44,7 +44,7 @@ class CustomCardWidget extends StatelessWidget {
               children: <Widget>[
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
+                  children: <Widget>[
                     Icon(icon, color: Colors.white, size: size.width * 0.06),
                     Text(
                       title,

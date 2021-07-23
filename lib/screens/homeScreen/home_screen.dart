@@ -11,7 +11,7 @@ import 'custom_card_widget.dart';
 import 'home_screen_header_text.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({Key? key}) : super(key: key);
   static const String routeName = '/HomeScreen';
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -29,29 +29,30 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    List<DonationCases> _cases =
+    final List<DonationCases> _cases =
         Provider.of<DonationCasesProvider>(context).getCasesList();
     return Scaffold(
       body: Column(
-        children: [
+        children: <Widget>[
           SizedBox(
             height: size.height * .38,
             child: Stack(
-              children: [
-                CustomAppBarBackbround(backgroundColor: Colors.purpleAccent),
+              children: <Widget>[
+                const CustomAppBarBackbround(
+                    backgroundColor: Colors.purpleAccent),
                 Positioned(
                   right: -size.height * 0.04,
                   top: -size.height * 0.1,
-                  child: CustomDarkBackgroundCircle(),
+                  child: const CustomDarkBackgroundCircle(),
                 ),
-                HomeScreenHeaderText(),
+                const HomeScreenHeaderText(),
                 Positioned(
                   bottom: 0,
                   left: 0,
                   right: 0,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
+                    children: const <Widget>[
                       CustomCardWidget(
                         icon: LineIcons.donate,
                         title: 'Donations',
@@ -76,10 +77,10 @@ class _MyHomePageState extends State<MyHomePage> {
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              children: <Widget>[
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
+                  children: <Widget>[
                     Expanded(child: CustomSearchTextFormField(search: _search)),
                     const SizedBox(width: 10),
                     Container(
@@ -90,7 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         borderRadius: BorderRadius.circular(10),
                       ),
                       alignment: Alignment.center,
-                      child: Icon(
+                      child: const Icon(
                         LineIcons.filter,
                         color: Colors.purple,
                       ),
@@ -113,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Expanded(
             child: ListView.builder(
               itemCount: _cases.length,
-              itemBuilder: (context, index) {
+              itemBuilder: (BuildContext context, int index) {
                 return DonationTileWidget(
                   donationCases: _cases[index],
                   size: size,

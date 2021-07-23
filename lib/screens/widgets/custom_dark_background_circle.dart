@@ -10,7 +10,7 @@ class CustomDarkBackgroundCircle extends StatelessWidget {
       child: Container(
         height: size.height * 0.34,
         width: size.width * 0.44,
-        decoration: new BoxDecoration(
+        decoration: const BoxDecoration(
           color: Colors.black12,
           shape: BoxShape.circle,
         ),

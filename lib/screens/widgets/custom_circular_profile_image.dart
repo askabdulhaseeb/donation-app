@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class CustomCircularProfileImage extends StatelessWidget {
   const CustomCircularProfileImage({
-    Key? key,
     required this.imageURL,
     this.radius = 20.0,
+    Key? key,
   }) : super(key: key);
   final String imageURL;
   final double radius;
@@ -17,7 +17,7 @@ class CustomCircularProfileImage extends StatelessWidget {
           )
         : CircleAvatar(
             radius: radius,
-            child: Icon(Icons.person),
+            child: const Icon(Icons.person),
           );
   }
 }

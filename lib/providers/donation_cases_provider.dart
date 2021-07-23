@@ -2,10 +2,11 @@ import 'package:donation_app/models/donation_cases.dart';
 import 'package:flutter/material.dart';
 
 class DonationCasesProvider extends ChangeNotifier {
-  List<DonationCases> _case = [];
+  // ignore: prefer_final_fields
+  List<DonationCases> _case = <DonationCases>[];
 
   void addDomeData() {
-    List<DonationCases> _needy = [
+    final List<DonationCases> _needy = <DonationCases>[
       DonationCases(
         cid: '1',
         uid: '11',

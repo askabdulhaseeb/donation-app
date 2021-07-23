@@ -6,14 +6,14 @@ class HomeScreenHeaderText extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
-  final String name = "Ibrahim";
+  final String name = 'Ibrahim';
   final String image =
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqOZwTzOSl7RWkKstbqrKZ0BQcqBAxxAZ5yQ&usqp\=CAU';
 
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    var textStyle = TextStyle(
+    final TextStyle textStyle = TextStyle(
       color: Colors.white,
       fontSize: size.width * 0.07,
       fontWeight: FontWeight.bold,
@@ -24,10 +24,10 @@ class HomeScreenHeaderText extends StatelessWidget {
       top: size.height * 0.06,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
+        children: <Widget>[
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: <Widget>[
               Text(
                 _getWelcomeText(),
                 style: textStyle,

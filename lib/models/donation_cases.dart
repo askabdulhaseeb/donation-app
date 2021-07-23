@@ -1,18 +1,6 @@
 import 'dart:convert';
 
 class DonationCases {
-  final String cid;
-  final String uid;
-  final String applicantName;
-  final String title;
-  final String discription;
-  final String type;
-  final String location;
-  final double totalAmount;
-  final double collectedAmount;
-  final String issueData;
-  final String dueData;
-
   DonationCases({
     required this.cid,
     required this.uid,
@@ -26,9 +14,53 @@ class DonationCases {
     required this.issueData,
     required this.dueData,
   });
+  factory DonationCases.fromMap(Map<String, dynamic> map) {
+    return DonationCases(
+      cid: map['cid'].toString(),
+      uid: map['uid'].toString(),
+      applicantName: map['applicantName'].toString(),
+      title: map['title'].toString(),
+      discription: map['discription'].toString(),
+      type: map['type'].toString(),
+      location: map['location'].toString(),
+      totalAmount: double.parse(map['totalAmount'].toString()),
+      collectedAmount: double.parse(map['collectedAmount'].toString()),
+      issueData: map['issueData'].toString(),
+      dueData: map['dueData'].toString(),
+    );
+  }
+  // ignore: always_specify_types
+  factory DonationCases.fromDocument(docs) {
+    return DonationCases(
+      cid: docs?.data()['cid'].toString() ?? '',
+      uid: docs?.data()['uid'].toString() ?? '',
+      applicantName: docs?.data()['applicantName'].toString() ?? 'Not found',
+      title: docs?.data()['title'].toString() ?? 'Not found',
+      discription: docs?.data()['discription'].toString() ?? 'Not found',
+      type: docs?.data()['type'].toString() ?? '',
+      location: docs?.data()['location'].toString() ?? 'Not found',
+      totalAmount:
+          double.parse(docs?.data()['totalAmount'].toString() ?? '0.0'),
+      collectedAmount:
+          double.parse(docs?.data()['collectedAmount'].toString() ?? '0.0'),
+      issueData: docs?.data()['issueData'].toString() ?? 'Not found',
+      dueData: docs?.data()['dueData'].toString() ?? 'Not found',
+    );
+  }
+  final String cid;
+  final String uid;
+  final String applicantName;
+  final String title;
+  final String discription;
+  final String type;
+  final String location;
+  final double totalAmount;
+  final double collectedAmount;
+  final String issueData;
+  final String dueData;
 
   Map<String, dynamic> toMap() {
-    return {
+    return <String, dynamic>{
       'cid': cid,
       'uid': uid,
       'applicantName': applicantName,
@@ -43,39 +75,8 @@ class DonationCases {
     };
   }
 
-  factory DonationCases.fromMap(Map<String, dynamic> map) {
-    return DonationCases(
-      cid: map['cid'],
-      uid: map['uid'],
-      applicantName: map['applicantName'],
-      title: map['title'],
-      discription: map['discription'],
-      type: map['type'],
-      location: map['location'],
-      totalAmount: map['totalAmount'],
-      collectedAmount: map['collectedAmount'],
-      issueData: map['issueData'],
-      dueData: map['dueData'],
-    );
-  }
-  factory DonationCases.fromDocument(docs) {
-    return DonationCases(
-      cid: docs?.data()['cid'] ?? '',
-      uid: docs?.data()['uid'] ?? '',
-      applicantName: docs?.data()['applicantName'] ?? 'Not found',
-      title: docs?.data()['title'] ?? 'Not found',
-      discription: docs?.data()['discription'] ?? 'Not found',
-      type: docs?.data()['type'] ?? '',
-      location: docs?.data()['location'] ?? 'Not found',
-      totalAmount: docs?.data()['totalAmount'] ?? 0.0,
-      collectedAmount: docs?.data()['collectedAmount'] ?? 0.0,
-      issueData: docs?.data()['issueData'] ?? 'Not found',
-      dueData: docs?.data()['dueData'] ?? 'Not found',
-    );
-  }
-
   String toJson() => json.encode(toMap());
 
-  factory DonationCases.fromJson(String source) =>
-      DonationCases.fromMap(json.decode(source));
+  // factory DonationCases.fromJson(String source) =>
+  //     DonationCases.fromMap(json.decode(source));
 }

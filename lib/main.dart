@@ -11,7 +11,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
+      // ignore: always_specify_types
       providers: [
+        // ignore: always_specify_types
         ChangeNotifierProvider.value(value: DonationCasesProvider()),
       ],
       child: MaterialApp(
@@ -19,9 +21,9 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
-          scaffoldBackgroundColor: Color(0xFFE7E9E8),
+          scaffoldBackgroundColor: const Color(0xFFE7E9E8),
         ),
-        home: MyHomePage(),
+        home: const MyHomePage(),
       ),
     );
   }

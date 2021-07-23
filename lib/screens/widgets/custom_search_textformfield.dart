@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 class CustomSearchTextFormField extends StatefulWidget {
-  const CustomSearchTextFormField({Key? key, required this.search})
-      : super(key: key);
+  const CustomSearchTextFormField({
+    required this.search,
+    Key? key,
+  }) : super(key: key);
   final TextEditingController search;
   @override
   _CustomSearchTextFormFieldState createState() =>
@@ -34,9 +36,8 @@ class _CustomSearchTextFormFieldState extends State<CustomSearchTextFormField> {
       ),
       child: TextFormField(
         controller: widget.search,
-        decoration: InputDecoration(
-          contentPadding:
-              const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        decoration: const InputDecoration(
+          contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           hintText: 'Search for keyword',
           suffixIcon: Icon(
             Icons.search,

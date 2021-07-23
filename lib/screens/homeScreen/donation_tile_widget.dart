@@ -2,9 +2,11 @@ import 'package:donation_app/models/donation_cases.dart';
 import 'package:flutter/material.dart';
 
 class DonationTileWidget extends StatelessWidget {
-  const DonationTileWidget(
-      {Key? key, required this.donationCases, required this.size})
-      : super(key: key);
+  const DonationTileWidget({
+    required this.donationCases,
+    required this.size,
+    Key? key,
+  }) : super(key: key);
   final DonationCases donationCases;
   final Size size;
   @override
@@ -24,7 +26,7 @@ class DonationTileWidget extends StatelessWidget {
           Container(
             height: 60,
             width: size.width * 0.16,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Colors.greenAccent,
               borderRadius: BorderRadius.only(
                 topRight: Radius.circular(50),
@@ -64,18 +66,18 @@ class DonationTileWidget extends StatelessWidget {
                   donationCases.location,
                   overflow: TextOverflow.ellipsis,
                   maxLines: 1,
-                  style: TextStyle(color: Colors.grey),
+                  style: const TextStyle(color: Colors.grey),
                 ),
               ],
             ),
           ),
           // amount
-          Container(
+          SizedBox(
             width: 80,
             child: Text(
               _amountConvertion(donationCases.totalAmount),
               maxLines: 1,
-              style: TextStyle(fontWeight: FontWeight.w300),
+              style: const TextStyle(fontWeight: FontWeight.w300),
             ),
           )
         ],
@@ -88,10 +90,10 @@ class DonationTileWidget extends StatelessWidget {
     double temp = amount;
     if (amount > 999 && amount < 1000000) {
       temp = amount / 1000;
-      _converted += temp.toStringAsFixed(1) + 'K';
+      _converted += '${temp.toStringAsFixed(1)} K';
     } else if (amount >= 1000000 && amount < 100000000) {
       temp = amount / 1000000;
-      _converted += temp.toStringAsFixed(1) + 'M';
+      _converted += '${temp.toStringAsFixed(1)} M';
     }
     return _converted;
   }
