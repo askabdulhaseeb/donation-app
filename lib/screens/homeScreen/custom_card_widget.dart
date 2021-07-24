@@ -43,9 +43,9 @@ class CustomCardWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     Icon(icon, color: Colors.white, size: size.width * 0.06),
+                    const SizedBox(width: 8),
                     Text(
                       title,
                       overflow: TextOverflow.ellipsis,

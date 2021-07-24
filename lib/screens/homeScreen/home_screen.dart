@@ -10,14 +10,14 @@ import 'package:provider/provider.dart';
 import 'custom_card_widget.dart';
 import 'home_screen_header_text.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
   static const String routeName = '/HomeScreen';
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _HomePageState extends State<HomePage> {
   final TextEditingController _search = TextEditingController();
 
   @override

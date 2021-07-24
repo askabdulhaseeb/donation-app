@@ -13,8 +13,9 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       // ignore: always_specify_types
       providers: [
-        // ignore: always_specify_types
-        ChangeNotifierProvider.value(value: DonationCasesProvider()),
+        ChangeNotifierProvider<DonationCasesProvider>.value(
+          value: DonationCasesProvider(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -23,7 +24,10 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           scaffoldBackgroundColor: const Color(0xFFE7E9E8),
         ),
-        home: const MyHomePage(),
+        home: const HomePage(),
+        routes: <String, Widget Function(BuildContext)>{
+          HomePage.routeName: (_) => const HomePage(),
+        },
       ),
     );
   }
