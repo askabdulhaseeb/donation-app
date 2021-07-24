@@ -55,11 +55,12 @@ class _HomePageState extends State<HomePage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      const CustomCardWidget(
+                      CustomCardWidget(
                         icon: LineIcons.donate,
                         title: 'Donations',
                         numberOfCases: 120,
                         backgroundColor: Colors.green,
+                        onTap: () {},
                       ),
                       CustomCardWidget(
                         icon: Icons.star_border_outlined,
@@ -69,6 +70,7 @@ class _HomePageState extends State<HomePage> {
                                 .getFavCases()
                                 .length,
                         backgroundColor: Colors.amber,
+                        onTap: () {},
                       ),
                     ],
                   ),
