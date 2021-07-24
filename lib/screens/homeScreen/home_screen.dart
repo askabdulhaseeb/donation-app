@@ -54,8 +54,8 @@ class _HomePageState extends State<HomePage> {
                   right: 0,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: const <Widget>[
-                      CustomCardWidget(
+                    children: <Widget>[
+                      const CustomCardWidget(
                         icon: LineIcons.donate,
                         title: 'Donations',
                         numberOfCases: 120,
@@ -64,7 +64,10 @@ class _HomePageState extends State<HomePage> {
                       CustomCardWidget(
                         icon: Icons.star_border_outlined,
                         title: 'Wish List',
-                        numberOfCases: 13,
+                        numberOfCases:
+                            Provider.of<DonationCasesProvider>(context)
+                                .getFavCases()
+                                .length,
                         backgroundColor: Colors.amber,
                       ),
                     ],
