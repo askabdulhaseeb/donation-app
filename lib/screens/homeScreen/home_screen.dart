@@ -4,7 +4,9 @@ import 'package:donation_app/screens/homeScreen/donation_tile_widget.dart';
 import 'package:donation_app/screens/widgets/custom_appbar_background.dart';
 import 'package:donation_app/screens/widgets/custom_dark_background_circle.dart';
 import 'package:donation_app/screens/widgets/custom_search_textformfield.dart';
+import 'package:donation_app/screens/widgets/custom_sliable_action.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:line_icons/line_icons.dart';
 import 'package:provider/provider.dart';
 import 'custom_card_widget.dart';
@@ -113,11 +115,28 @@ class _HomePageState extends State<HomePage> {
           ),
           Expanded(
             child: ListView.builder(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
               itemCount: _cases.length,
               itemBuilder: (BuildContext context, int index) {
-                return DonationTileWidget(
-                  donationCases: _cases[index],
-                  size: size,
+                return Slidable(
+                  actionPane: const SlidableScrollActionPane(),
+                  secondaryActions: <Widget>[
+                    CustomSlidableAction(
+                      size: size,
+                      onTap: () {
+                        Provider.of<DonationCasesProvider>(context,
+                                listen: false)
+                            .updateFavCase(_cases[index]);
+                      },
+                      icon: (_cases[index].isFav)
+                          ? Icons.star
+                          : Icons.star_border,
+                    ),
+                  ],
+                  child: DonationTileWidget(
+                    donationCases: _cases[index],
+                    size: size,
+                  ),
                 );
               },
             ),

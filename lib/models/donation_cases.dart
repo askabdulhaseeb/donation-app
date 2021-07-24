@@ -13,6 +13,7 @@ class DonationCases {
     required this.collectedAmount,
     required this.issueData,
     required this.dueData,
+    this.isFav = false,
   });
   factory DonationCases.fromMap(Map<String, dynamic> map) {
     return DonationCases(
@@ -58,6 +59,7 @@ class DonationCases {
   final double collectedAmount;
   final String issueData;
   final String dueData;
+  bool isFav;
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{

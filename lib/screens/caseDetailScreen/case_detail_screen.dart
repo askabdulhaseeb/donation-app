@@ -165,7 +165,6 @@ class CaseDetailScreen extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         const CustomAppBarWithTitleAndPopPageButton(title: 'Case No.'),
-        const SizedBox(height: 16),
         Padding(
           padding: const EdgeInsets.only(left: 34),
           child: SizedBox(
@@ -205,6 +204,7 @@ class CaseDetailScreen extends StatelessWidget {
             maxLines: 1,
             style: const TextStyle(
               color: Colors.white,
+              fontWeight: FontWeight.bold,
             ),
           ),
         ),

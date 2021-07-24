@@ -170,6 +170,24 @@ class DonationCasesProvider extends ChangeNotifier {
     addListOfCases(_needy);
   }
 
+  void updateFavCase(DonationCases donationCases) {
+    donationCases.isFav = !donationCases.isFav;
+    _case[_case.indexWhere(
+            (DonationCases element) => element.cid == donationCases.cid)] =
+        donationCases;
+    notifyListeners();
+  }
+
+  List<DonationCases> getFavCases() {
+    List<DonationCases> _fav = <DonationCases>[];
+    _case.forEach((DonationCases element) {
+      if (element.isFav == true) {
+        _fav.add(element);
+      }
+    });
+    return _fav;
+  }
+
   void addCase(DonationCases donationCases) {
     _case.add(donationCases);
     notifyListeners();
