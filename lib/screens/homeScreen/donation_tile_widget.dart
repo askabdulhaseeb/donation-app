@@ -1,7 +1,6 @@
 import 'package:donation_app/models/donation_cases.dart';
 import 'package:donation_app/screens/caseDetailScreen/case_detail_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 
 class DonationTileWidget extends StatelessWidget {
   const DonationTileWidget({

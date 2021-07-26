@@ -1,4 +1,5 @@
 import 'package:donation_app/providers/donation_cases_provider.dart';
+import 'package:donation_app/screens/wishListScreen/wish_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'screens/homeScreen/home_screen.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
         home: const HomePage(),
         routes: <String, Widget Function(BuildContext)>{
           HomePage.routeName: (_) => const HomePage(),
+          WishListScreen.routeName: (_) => WishListScreen(),
         },
       ),
     );

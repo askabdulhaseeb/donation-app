@@ -37,7 +37,7 @@ class _CustomSearchTextFormFieldState extends State<CustomSearchTextFormField> {
       child: TextFormField(
         controller: widget.search,
         decoration: const InputDecoration(
-          contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 0),
           hintText: 'Search for keyword',
           suffixIcon: Icon(
             Icons.search,

@@ -39,7 +39,9 @@ class CustomCardWidget extends StatelessWidget {
             Positioned(
               top: -size.height * 0.2,
               left: -size.height * 0.1,
-              child: const CustomDarkBackgroundCircle(),
+              child: const CustomDarkBackgroundCircle(
+                child: SizedBox(),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(20),

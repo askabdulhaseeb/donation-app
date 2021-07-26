@@ -12,7 +12,7 @@ class CustomAppBarBackbround extends StatelessWidget {
     return ClipPath(
       clipper: _CustomShape(),
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.30,
+        height: MediaQuery.of(context).size.height * 0.32,
         color: backgroundColor,
       ),
     );

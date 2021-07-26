@@ -136,17 +136,23 @@ class CaseDetailScreen extends StatelessWidget {
         Positioned(
           right: -size.height * 0.04,
           top: -size.height * 0.1,
-          child: const CustomDarkBackgroundCircle(),
-        ),
-        Positioned(
-          top: size.height * 0.022,
-          right: size.height * 0.032,
-          child: Icon(
-            Icons.favorite_border,
-            color: Colors.white38,
-            size: size.width * 0.25,
+          child: CustomDarkBackgroundCircle(
+            child: Icon(
+              Icons.favorite_border,
+              color: Colors.white38,
+              size: size.width * 0.25,
+            ),
           ),
         ),
+        // Positioned(
+        //   top: size.height * 0.022,
+        //   right: size.height * 0.032,
+        //   child: Icon(
+        //     Icons.favorite_border,
+        //     color: Colors.white38,
+        //     size: size.width * 0.25,
+        //   ),
+        // ),
         Positioned(
           top: 20,
           left: 10,

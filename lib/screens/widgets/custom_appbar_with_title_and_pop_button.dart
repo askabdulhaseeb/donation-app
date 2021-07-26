@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class CustomAppBarWithTitleAndPopPageButton extends StatelessWidget {
   const CustomAppBarWithTitleAndPopPageButton({
     required this.title,
+    this.backgroundColor = Colors.purpleAccent,
     Key? key,
   }) : super(key: key);
 
   final String title;
+  final Color backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +19,13 @@ class CustomAppBarWithTitleAndPopPageButton extends StatelessWidget {
       },
       child: Row(
         children: <Widget>[
-          const CircleAvatar(
+          CircleAvatar(
             radius: 12,
             backgroundColor: Colors.white,
             child: CircleAvatar(
               radius: 10,
-              backgroundColor: Colors.purpleAccent,
-              child: Padding(
+              backgroundColor: backgroundColor,
+              child: const Padding(
                 padding: EdgeInsets.only(right: 2),
                 child: Icon(Icons.arrow_back_ios_new_rounded,
                     color: Colors.white, size: 16),

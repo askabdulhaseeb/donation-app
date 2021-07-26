@@ -5,6 +5,7 @@ import 'package:donation_app/screens/widgets/custom_appbar_background.dart';
 import 'package:donation_app/screens/widgets/custom_dark_background_circle.dart';
 import 'package:donation_app/screens/widgets/custom_search_textformfield.dart';
 import 'package:donation_app/screens/widgets/custom_sliable_action.dart';
+import 'package:donation_app/screens/wishListScreen/wish_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:line_icons/line_icons.dart';
@@ -45,7 +46,9 @@ class _HomePageState extends State<HomePage> {
                 Positioned(
                   right: -size.height * 0.04,
                   top: -size.height * 0.1,
-                  child: const CustomDarkBackgroundCircle(),
+                  child: const CustomDarkBackgroundCircle(
+                    child: SizedBox(),
+                  ),
                 ),
                 const HomeScreenHeaderText(),
                 Positioned(
@@ -70,7 +73,10 @@ class _HomePageState extends State<HomePage> {
                                 .getFavCases()
                                 .length,
                         backgroundColor: Colors.amber,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context)
+                              .pushNamed(WishListScreen.routeName);
+                        },
                       ),
                     ],
                   ),
