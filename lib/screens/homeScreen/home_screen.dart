@@ -1,6 +1,7 @@
 import 'package:donation_app/models/donation_cases.dart';
 import 'package:donation_app/providers/donation_cases_provider.dart';
 import 'package:donation_app/screens/homeScreen/donation_tile_widget.dart';
+import 'package:donation_app/screens/pastDonationScreen/past_donation_screen.dart';
 import 'package:donation_app/screens/widgets/custom_appbar_background.dart';
 import 'package:donation_app/screens/widgets/custom_dark_background_circle.dart';
 import 'package:donation_app/screens/widgets/custom_search_textformfield.dart';
@@ -63,7 +64,10 @@ class _HomePageState extends State<HomePage> {
                         title: 'Donations',
                         numberOfCases: 120,
                         backgroundColor: Colors.green,
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.of(context)
+                              .pushNamed(PastDonationScreen.routeName);
+                        },
                       ),
                       CustomCardWidget(
                         icon: Icons.star_border_outlined,

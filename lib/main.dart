@@ -1,4 +1,5 @@
 import 'package:donation_app/providers/donation_cases_provider.dart';
+import 'package:donation_app/screens/pastDonationScreen/past_donation_screen.dart';
 import 'package:donation_app/screens/wishListScreen/wish_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         routes: <String, Widget Function(BuildContext)>{
           HomePage.routeName: (_) => const HomePage(),
           WishListScreen.routeName: (_) => WishListScreen(),
+          PastDonationScreen.routeName: (_) => PastDonationScreen(),
         },
       ),
     );
